@@ -53,11 +53,12 @@ public class Digit {
     		  String[]  ones = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
     		  String[]  tens = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
     		  String[] hunds = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
-    		 
-    		  String h= hunds[(value / 100) %10];
-    		  String t= tens[(value / 10) %10];
-    		  String o= ones[(value %10)];
-    		  if (value==0) {o="в римской записи 0 отсутствует";}
+    		  
+    		  String h= hunds[(Math.abs(value) / 100) %10];
+    		  String t= tens[(Math.abs(value) / 10) %10];
+    		  String o= ones[(Math.abs(value) %10)];
+    		  if (value==0) {o="в римской записи 0 отсутствует"; return o;}
+    		  if (value<0) {h="-"+h;}
     		 return h+t+o;
     	 }
      }
